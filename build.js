@@ -2,8 +2,20 @@ const fs = require('fs');
 
 const ENCODING = 'utf8';
 
-// read default common passwords list
-const data = fs.readFileSync('commonPasswords.txt', ENCODING);
+// use fileName from args or default file
+let fileName =  process.argv[2];
+fileName = fileName || 'commonPasswords.txt';
+
+// make sure file exists and we have read permissions
+// see: https://nodejs.org/api/fs.html#fs_fs_accesssync_path_mode
+try {
+  fs.accessSync(fileName, fs.constants.R_OK);
+} catch (err) {
+  throw err;
+}
+
+// read contents and store to array
+const data = fs.readFileSync(fileName, ENCODING);
 const commonPasswordsArr = data.split('\n');
 
 // store passwords to map

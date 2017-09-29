@@ -20,12 +20,12 @@ $ git clone git@github.com:dcolucci/password-validator-node
 
 ### Build
 
-The tool must be built before use in order to generate the list of common passwords.
+The tool must be built before use in order to generate the list of common passwords.  You can pass your own list of common passwords to `build` if you like; otherwise, the tool will use the [default list](https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/10_million_password_list_top_100000.txt).
 
 ```sh
-npm run build
+npm run build [<file>]
 ```
-This will copy the contents of `commonPasswords.txt` to a `data/commonPasswords.json` file for faster runtime processing.
+This will copy the contents of `<file>` (or `common-passwords.txt` if no file specified) to a `data/commonPasswords.json` file for faster runtime processing.
 
 
 ### Usage
@@ -60,7 +60,6 @@ $ password-validator passwords.txt
 
 
 ### To Do
- - [ ] CLI for adding new common passwords file
  - [ ] Implement actual build system
  - [ ] Integration tests
  - [ ] JavaScript module accepting custom validators / other options
