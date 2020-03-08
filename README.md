@@ -33,7 +33,7 @@ This will copy the contents of `<file>` (or `common-passwords.txt` if no file sp
 Use the `password-validator` command to validate a file of candidate passwords, one password per line.
 
 ```sh
-$ password-validator <file>
+$ ./bin/password-validator <file>
 ```
 
 This will check each line of the file against each of the configured validation checks, and print validation failures to the console.
